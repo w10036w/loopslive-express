@@ -1,0 +1,60 @@
+<!DOCTYPE HTML><html><head><meta charset="UTF-8"><meta content="width=720,user-scalable=no" name="viewport"><title>m.rings.tv</title><meta name="author" content="Mozat"><meta name="Copyright" content="Mozat Pte Ltd"><meta name="format-detection" content="email=no,address=no,telephone=no"><style>
+    .tips{
+      position: fixed;
+      top:0;left: 0;
+      z-index: 900;
+      width: 100%;
+      height: 100%;
+      background: url(http://cdn.rings.me/client_rings_me/assets/png/arrow.png) no-repeat top right rgba(0,0,0,0.8);
+    }
+    h3{
+      text-align: center;position: absolute;width: 100%;top: 200px;font-size: 40px;color: #988645;
+    }
+  </style></head><body ontouchstart="" class=""><script>
+  var ua = navigator.userAgent || navigator.platform;
+  if(wechat()){
+    console.log('wechat');
+    mask();
+  }else{
+    location.href=downloadLink();
+  }
+  function os(){
+    if((/ipad|iphone|ipod/gi).test(ua)){
+      return 'ios';
+    }else if( ua.match( /Android/gi ) ) {
+      return 'android';
+    }
+    return 'desktop';//not mobile
+  }
+  function downloadLink(){
+    if(os()==='ios'){
+      return 'https://itunes.apple.com/us/app/rings-interactive-broadcasting/id1011210996?mt=8';
+    }else{
+      return 'https://play.google.com/store/apps/details?id=mozat.rings';
+    }
+  }
+
+  function mask(txt){
+    //var lang = this.langDetect();
+    if(!document.querySelector(".tips")){
+      var tipDiv = "<div class='tips'><h3>";
+      var text;
+      if(txt){text = txt}
+      else{
+        text = os()==='ios'?"click 'Open with Safari' <br> to download RINGS.TV App.":
+            "click 'Open with Browser'<br> to download RINGS.TV App.";
+      }
+      tipDiv += text;
+      tipDiv += "</h3></div>";
+      document.write(tipDiv);
+    }
+    var x=document.querySelector(".tips");
+    x.style.display='block';
+    x.addEventListener('click',function(){
+      history.back();
+    });
+  }
+  function wechat(){
+    return (/micromessenger/gi.test(ua));
+  }
+</script></body></html>

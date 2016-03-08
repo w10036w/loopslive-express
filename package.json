@@ -1,0 +1,34 @@
+{
+  "name": "portal",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Deja",
+  "project": {
+    "browserSync": {
+      "open": false,
+      "proxy": "http://ilabs.mozat.com/dejadesktopportal/",
+      "reloadDelay": 300
+    }
+  },
+  "scripts": {
+    "serve": "NODE_ENV=production node ./bin/www",
+    "start": "NODE_ENV=development node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "express": "~4.13.1",
+    "hbs": "~3.1.0",
+    "morgan": "~1.6.1",
+    "serve-favicon": "~2.3.0",
+    "stylus": "0.42.3"
+  },
+  "keywords": [
+    "web",
+    "express",
+    "mozat"
+  ],
+  "author": "ark",
+  "license": "MIT"
+}

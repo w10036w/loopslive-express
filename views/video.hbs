@@ -1,0 +1,43 @@
+<h1>{{title}}</h1>
+<p>Reiddf</p>
+<h3>cid: {{cid}}</h3>
+<h3>sid: {{sid}}</h3>
+<button>click me</button>
+<script>
+
+  var ua = navigator.userAgent || navigator.platform;
+  ua = ua.toLowerCase();
+  window.setTimeout(function(){
+    openAppVideo(10007006,'v27124');
+    redirect();
+  },1000);
+
+  function openAppVideo(cid,sid){
+    var htm='<iframe class="redirect" src="mozatrings://video/10013984/v25860?r=0.10772943962365389" style="width: 1px; height: 1px; position: absolute; top: 0px; left: 0px;"></iframe>';
+    /*var htm = '<iframe src="mozatrings://';
+    if(cid && sid){
+      htm += 'video/'+cid+'/'+sid;
+    }
+    htm+='?r='+Math.random()+'"></iframe>';*/
+    console.log(htm);
+    document.body.insertAdjacentHTML(
+      'afterbegin',htm);
+  }
+  function os(){
+    if((/ipad|iphone|ipod/gi).test(ua)){
+      return 'ios';
+    }else if( ua.match( /Android/gi ) ) {
+      return 'android';
+    }
+    return 'desktop';//not mobile
+  }
+  function redirect(){
+    if(os()==='ios'){
+      location.href='https://itunes.apple.com/is/app/loops/id1085411495?mt=8';
+    }else if(os()==='android'){
+      location.href='https://play.google.com/store/apps/details?id=mozat.rings.loops';
+    }else{
+
+    }
+  }
+</script>
